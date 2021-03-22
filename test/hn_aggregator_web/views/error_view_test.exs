@@ -1,0 +1,19 @@
+defmodule HnAggregatorWeb.ErrorViewTest do
+  use HnAggregatorWeb.ConnCase, async: true
+
+  # Bring render/3 and render_to_string/3 for testing custom views
+  import Phoenix.View
+
+  test "renders 404.json" do
+    assert render(HnAggregatorWeb.ErrorView, "404.json", []) == %{errors: %{detail: "Not Found"}}
+  end
+
+  test "renders 406.json" do
+    assert render(HnAggregatorWeb.ErrorView, "406.json", []) == %{errors: %{detail: "Wrong Parameter"}}
+  end
+
+  test "renders 500.json" do
+    assert render(HnAggregatorWeb.ErrorView, "500.json", []) ==
+             %{errors: %{detail: "Internal Server Error"}}
+  end
+end
